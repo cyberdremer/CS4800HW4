@@ -4,68 +4,49 @@ import java.util.List;
 
 public class PizzaDriver {
     public static void main(String[] args) {
-        List<String> pizzaOneToppings = Pizza.PizzaBuilder.menuToppings.subList(0,3);
-        Pizza pizzaOne = new Pizza.PizzaBuilder(Pizza.PizzaSize.SMALL).setToppings(pizzaOneToppings).build();
-        eat(pizzaOne);
-
-        List<String> pizzaTwoToppings = Pizza.PizzaBuilder.menuToppings.subList(0,6);
-        Pizza pizzaTwo = new Pizza.PizzaBuilder(Pizza.PizzaSize.MEDIUM).setToppings(pizzaTwoToppings).build();
-        eat(pizzaTwo);
-
-        List<String> pizzaThreeToppings = Pizza.PizzaBuilder.menuToppings.subList(0,9);
-        Pizza pizzaThree = new Pizza.PizzaBuilder(Pizza.PizzaSize.LARGE).setToppings(pizzaThreeToppings).build();
-        eat(pizzaThree);
 
 
-        List<String> pizzaHutOneToppings = Pizza.PizzaBuilder.menuToppings.subList(1,4);
-        Pizza pizzaHutOne = new Pizza.PizzaBuilder(Pizza.PizzaSize.LARGE).setChain("Pizza Hutt")
-                .setToppings(pizzaHutOneToppings).build();
-        eat(pizzaHutOne);
+        Pizza threeToppingPizza = new Pizza.PizzaBuilder(Pizza.PizzaSize.LARGE)
+                .setToppingBacon().setToppingBeef().setToppingChicken().build();
 
-        List<String> pizzaHuttTwoToppings = Pizza.PizzaBuilder.menuToppings.subList(4,7);
-        Pizza pizzaHutTwo = new Pizza.PizzaBuilder(Pizza.PizzaSize.SMALL).setChain("Pizza Hutt")
-                .setToppings(pizzaHuttTwoToppings).build();
-        eat(pizzaHutTwo);
+        Pizza sixToppingPizza = new Pizza.PizzaBuilder(Pizza.PizzaSize.LARGE).
+                setToppingHam().setToppingBeef().setToppingOlives().setToppingOnions()
+                .setToppingSpicyPork().setToppingTomatoAndBasil().build();
 
+        Pizza nineToppingPizza = new Pizza.PizzaBuilder(Pizza.PizzaSize.LARGE).setToppingBacon()
+                .setToppingBeef().setToppingChicken().setToppingExtraCheese().setToppingMushrooms()
+                .setToppingOlives().setToppingHamAndPineapple().setToppingPesto().setToppingTomatoAndBasil()
+                .build();
 
-        List<String> littleCaesarsOneToppings = Pizza.PizzaBuilder.menuToppings.subList(6,14);
-        Pizza littleCaesarsOne = new Pizza.PizzaBuilder(Pizza.PizzaSize.MEDIUM).setChain("Little Caesar")
-                .setToppings(littleCaesarsOneToppings).build();
-        eat(littleCaesarsOne);
+        eat(threeToppingPizza);
+        eat(sixToppingPizza);
+        eat(nineToppingPizza);
 
-        List<String> littleCaesarsTwoToppings = Pizza.PizzaBuilder.menuToppings.subList(9,15);
-        Pizza littleCaesarsTwo = new Pizza.PizzaBuilder(Pizza.PizzaSize.MEDIUM).setChain("Little Caesar")
-                .setToppings(littleCaesarsTwoToppings).build();
-        eat(littleCaesarsTwo);
+        Pizza[] chainPizzas = new Pizza[6];
 
-        List<String> dominoesOneToppings = Pizza.PizzaBuilder.menuToppings.subList(8,9);
-        Pizza dominoesOne = new Pizza.PizzaBuilder(Pizza.PizzaSize.SMALL).setChain("Dominoes").
-                setToppings(dominoesOneToppings).build();
-        eat(dominoesOne);
+        chainPizzas[0] = new Pizza.PizzaBuilder(Pizza.PizzaSize.LARGE).setChain("Pizza Hut")
+                .setToppingBacon().setToppingHam().setToppingHamAndPineapple().build();
 
-        List<String> dominoesTwoToppings = Pizza.PizzaBuilder.menuToppings.subList(10,13);
-        Pizza dominoesTwo = new Pizza.PizzaBuilder(Pizza.PizzaSize.SMALL).setChain("Dominoes").
-                setToppings(dominoesTwoToppings).build();
-        eat(dominoesTwo);
+        chainPizzas[1] = new Pizza.PizzaBuilder(Pizza.PizzaSize.SMALL).setChain("Pizza Hut")
+                .setToppingChicken().setToppingOnions().build();
 
+        chainPizzas[2] = new Pizza.PizzaBuilder(Pizza.PizzaSize.MEDIUM).setChain("Little Caesars")
+                .setToppingBeef().setToppingOnions().setToppingMushrooms().setToppingOlives().setToppingPesto()
+                .setToppingExtraCheese().setToppingChicken().setToppingHamAndPineapple().build();
 
+        chainPizzas[3] = new Pizza.PizzaBuilder(Pizza.PizzaSize.SMALL).setChain("Little Casesars")
+                .setToppingPeperoni().setToppingHam().setToppingHam().setToppingBacon().setToppingPesto()
+                .setToppingSpicyPork().build();
 
+        chainPizzas[4] = new Pizza.PizzaBuilder(Pizza.PizzaSize.SMALL).setChain("Dominos").setToppingSpicyPork()
+                .build();
 
+        chainPizzas[5] = new Pizza.PizzaBuilder(Pizza.PizzaSize.LARGE).setToppingPesto().setToppingPeperoni()
+                .setToppingSpicyPork().build();
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+        for (int i = 0; i < chainPizzas.length; i++){
+            eat(chainPizzas[i]);
+        }
 
 
 
